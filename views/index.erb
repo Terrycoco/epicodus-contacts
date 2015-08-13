@@ -1,0 +1,27 @@
+<h1>Contacts</h1>
+
+
+  <ul>
+    <% @contacts.each() do |contact| %>
+    <li><a href="/contact_detail/<%= contact.id %>"><%= contact.fullname() %></a></li>
+    <% end %>
+  </ul>
+
+  <br>
+
+  <form action="/new_contact" method="post">
+    <label for="first">First Name</label>
+    <br><input type="text" name="first">
+    <br>
+    <label for="last">Last Name</label>
+    <br><input type="text" name="last">
+    <br>
+    <label for="company">Company</label>
+    <br><input type="text" name="company">
+    <br>
+    <label for="title">Job Title</label>
+    <br><input type="text" name="title">
+    <br><br><br>
+    <button name="button" type="submit">Add</button>
+  </form>
+</form>

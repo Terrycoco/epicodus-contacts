@@ -1,5 +1,6 @@
 class Contact
   @@contacts = []
+  @@counter = 0
 
 #instance methods and properties
   define_method(:initialize) do |last, first, attributes = {}|
@@ -8,6 +9,15 @@ class Contact
     @company = attributes.fetch(:company, '')
     @title = attributes.fetch(:title, '')
     @addresses = attributes.fetch(:add_address, [])
+    @fullname = @first.concat(" ").concat(@last)
+    @id = new_id()
+  end
+  define_method(:new_id) do
+    @@counter += 1
+  end
+
+  define_method(:id) do
+    @id
   end
 
   define_method(:last) do
@@ -19,7 +29,7 @@ class Contact
   end
 
   define_method(:fullname) do
-    @fullname = @first.concat(" ").concat(@last)
+    @fullname
   end
 
   define_method(:save) do
@@ -52,5 +62,12 @@ class Contact
     @@contacts
   end
 
+  define_singleton_method(:find) do |id|
+    @@contacts.each() do |contact|
+      if contact.id() == id
+          return contact
+      end
+    end
+ end
 
-end
+end  #end class
