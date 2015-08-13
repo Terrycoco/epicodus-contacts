@@ -7,6 +7,7 @@ class Contact
     @first = first
     @company = attributes.fetch(:company, '')
     @title = attributes.fetch(:title, '')
+    @addresses = attributes.fetch(:add_address, [])
   end
 
   define_method(:last) do
@@ -31,6 +32,13 @@ class Contact
 
   define_method(:title) do
     @title
+  end
+
+  define_method(:addresses) do
+    @addresses
+  end
+  define_method(:add_address) do |test_address|
+    @addresses.push(test_address)
   end
 
 
