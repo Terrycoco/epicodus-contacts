@@ -32,6 +32,13 @@ describe("contact") do
    end
  end
 
+ describe("#title") do
+   it("adds a new sttribute job title to the contact") do
+     test_contact = Contact.new('Smith', 'Jim', {:title => 'engineer'})
+     expect(test_contact.title()).to(eq('engineer'))
+   end
+ end
+
 
 
 end

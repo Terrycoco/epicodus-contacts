@@ -6,6 +6,7 @@ class Contact
     @last = last
     @first = first
     @company = attributes.fetch(:company, '')
+    @title = attributes.fetch(:title, '')
   end
 
   define_method(:last) do
@@ -26,6 +27,10 @@ class Contact
 
   define_method(:company) do
     @company
+  end
+
+  define_method(:title) do
+    @title
   end
 
 
