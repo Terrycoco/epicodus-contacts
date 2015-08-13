@@ -40,6 +40,16 @@ describe("contact") do
    end
  end
 
+ describe("#add_address") do
+   it("adds a new address to a contact") do
+     test_contact = Contact.new('Smith', 'John')
+     test_address = Address.new('home', {:street1 => '2324 SE Salmon', :street2 => 'room 3'})
+     test_address.save()
+     test_contact.add_address(test_address)
+     expect(test_contact.addresses().include?(test_address)).to(eq(true))
+   end
+ end
+
 end
 
 describe("address") do

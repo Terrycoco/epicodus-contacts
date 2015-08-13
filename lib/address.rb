@@ -29,9 +29,15 @@ class Address
   define_method(:zip) do
     @zip
   end
+  define_method(:save) do
+    @@addresses.push(self)
+  end
 
   define_singleton_method(:clear) do
     @@addresses = []
+  end
+  define_singleton_method(:all) do
+    @@addresses
   end
 
 end
