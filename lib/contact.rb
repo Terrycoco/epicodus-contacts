@@ -9,8 +9,9 @@ class Contact
     @company = attributes.fetch(:company, '')
     @title = attributes.fetch(:title, '')
     @addresses = attributes.fetch(:add_address, [])
-    @fullname = @first.concat(" ").concat(@last)
+    @fullname = first + " " + last
     @id = new_id()
+
   end
   define_method(:new_id) do
     @@counter += 1
