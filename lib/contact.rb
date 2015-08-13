@@ -2,10 +2,10 @@ class Contact
   @@contacts = []
 
 #instance methods and properties
-  define_method(:initialize) do |attributes|
-    @last = attributes.fetch(:last)
-    @first = attributes.fetch(:first)
-    @company = attributes.fetch(:company)
+  define_method(:initialize) do |last, first, attributes = {}|
+    @last = last
+    @first = first
+    @company = attributes.fetch(:company, '')
   end
 
   define_method(:last) do

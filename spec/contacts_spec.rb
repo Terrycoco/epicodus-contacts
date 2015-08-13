@@ -11,7 +11,7 @@ describe("contact") do
 
   describe("#initialize") do
     it("creates a new contact with first and last name") do
-      test_contact = Contact.new({:last => 'Smith', :first => 'John'})
+      test_contact = Contact.new('Smith', 'John')
       expect(test_contact.fullname()).to(eq('John Smith'))
     end
   end
@@ -19,7 +19,7 @@ describe("contact") do
 
   describe("#save") do
     it("save contact to the contacts collection") do
-      test_contact = Contact.new({:last => 'Smith', :first => 'John'})
+      test_contact = Contact.new('Smith', 'John')
       test_contact.save()
       expect(Contact.all().include?(test_contact)).to(eq(true))
     end
@@ -27,7 +27,7 @@ describe("contact") do
 
  describe("#company") do
    it("adds a new attribute company to the contact") do
-     test_contact = Contact.new({:last => 'Smith', :first => 'John', :company => 'ABC Corp'})
+     test_contact = Contact.new('Smith', 'John', {:company => 'ABC Corp'})
      expect(test_contact.company()).to(eq('ABC Corp'))
    end
  end
